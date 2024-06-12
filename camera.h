@@ -12,9 +12,9 @@ using namespace std;
 
 class camera {
 public:
-    double aspect_ratio = 1.0; // Ratio of width to height
-    int image_width = 100; // Rendered image width in pixel count
-    int samples_per_pixel = 10; // Count of random samples for each pixel
+    double aspect_ratio; // Ratio of width to height
+    int image_width; // Rendered image width in pixel count
+    int samples_per_pixel; // Count of random samples for each pixel
 
     // Public Camera Parameters Here
 
@@ -34,7 +34,7 @@ public:
                     ray r = get_ray(i, j);
                     pixel_color += ray_color(r, world);
                 }
-                write_color(cout, pixel_color);
+                write_color(cout, pixel_samples_scale * pixel_color);
             }
         }
         clog << "\rDone                        \n";
@@ -77,6 +77,8 @@ private:
     }
 
     ray get_ray(int i, int j) const {
+        // Construct a camera ray originating from the origin and directed at randomly sampled
+        // point around the pixel location i, j.
         auto offset = sample_square();
         auto pixel_sample = pixel00_loc
                             + (i + offset.x()) * pixel_delta_u
