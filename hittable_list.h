@@ -7,6 +7,7 @@
 
 #include "hittable.h"
 #include <vector>
+#include "rtweekend.h"
 
 using namespace std;
 
