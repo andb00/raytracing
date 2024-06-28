@@ -37,4 +37,4 @@ feh image.ppm
 
 ## Example
 
-![img.png](img.png)
+![final](https://github.com/andb00/raytracing/assets/135753876/927e0197-5676-4e68-9ef0-a4bafb9b6e35)
